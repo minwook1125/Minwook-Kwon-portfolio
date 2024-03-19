@@ -1,0 +1,272 @@
+/* Reset some default styles */
+body, h1, h2, button, a {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+#home {
+    display: flex; /* 플렉스박스를 사용합니다. */
+    flex-direction: column; /* 요소들을 세로로 나열합니다. */
+    align-items: center; /* 세로 축에서 중앙 정렬합니다. */
+    justify-content: center; /* 가로 축에서 중앙 정렬합니다. */
+    min-height: 100vh; /* 최소 높이를 화면의 높이와 동일하게 설정합니다. */
+    text-align: center; /* 텍스트를 중앙 정렬합니다. */
+}
+
+
+/* Navbar styles */
+#navbar {
+    display: flex;
+    justify-content: space-between; /* Logo and menu items spaced out */
+    align-items: center;
+    background-color: #fff;
+    padding: 20px 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+/* Brand logo style */
+#navbar .brand-logo {
+    font-size: 1.5em;
+    color: red;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Navbar links style */
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+#navbar a {
+    text-decoration: none;
+    color: #6d6d6d;
+    font-weight: normal;
+    padding: 0 1em;
+    font-size: 1em;
+    position: relative;
+    display: block;
+}
+
+#navbar a:hover, #navbar a:focus {
+    color: #0071e3;
+}
+
+#navbar a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: transparent;
+    transition: transform 0.3s, background-color 0.3s;
+    transform: scaleX(0);
+    transform-origin: right;
+}
+
+#navbar a:hover::after, #navbar a:focus::after {
+    transform: scaleX(1);
+    transform-origin: left;
+    background: #0071e3;
+}
+
+/* Main content styles */
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.profile-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3개의 열로 나눕니다. */
+    align-items: center; /* 내용을 가로축으로 중앙 정렬합니다. */
+    justify-items: center; /* 내용을 세로축으로 중앙 정렬합니다. */
+    text-align: center; /* 텍스트를 중앙 정렬합니다. */
+    gap: 20px; /* 컬럼 사이의 간격을 설정합니다. */
+    max-width: 2000px; /* 최대 너비를 설정합니다. */
+    width: 100%; /* 너비를 100%로 설정하여 부모 컨테이너를 꽉 채웁니다. */
+}
+
+
+.profile-section {
+    width: 100%;
+    max-width: 1200px; /* Adjust as needed based on your design */
+    /*margin: auto;*/
+    margin-top: -20px;
+}
+
+
+.profile-image-large {
+    grid-column: 2 / 3;
+    place-self: center; /* Center the image in its grid area */
+    width: auto; /* Reset any specific width */
+    max-width: 100%; /* Make sure it's responsive */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.profile-image-large img {
+    max-height: 75vh;
+    max-width: 100%;
+    height: auto;
+    clip-path: ellipse(50% 100% at 50% 50%);
+}
+
+.left-content, .right-content {
+    max-width: 600px;
+}
+
+.left-content h1,.left-content h2, .right-content p {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.left-content h1,.left-content h2{
+    margin: 0;
+    line-height: 1.2;
+
+}
+
+.left-content {
+    grid-column: 1 / 2;
+    text-align: left; /* Align text to the left */
+}
+
+.right-content {
+    grid-column: 3 / 4;
+    text-align: left; /* Align text to the left */
+    font-size: 1.2em; /* Slightly larger font size */
+}
+
+.left-content .name {
+    color:red; /* Sky blue color for the name "Minwook Kwon" */
+    display: inline;
+    font-size: 1.5em;
+}
+
+/* 문구 강조 스타일 */
+.highlight {
+    font-weight: bold; /* 글자를 굵게 합니다. */
+    font-size: 1.2em; /* 글자 크기를 더 크게 설정합니다. */
+}
+
+/* Since we have a specific blue, let's use the exact color from the screenshot */
+.name {
+    color: #007bff; /* This is a common blue color on the web */
+}
+
+/* Adjust the size of the name to stand out more */
+.name {
+     /* Make the name larger than the rest of the text */
+    font-weight: bold; /* Optional: make the name bold */
+}
+
+.profile-image {
+    width: 200px;
+    margin: 0 30px;
+}
+
+.profile-image img {
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info, .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+.social-links {
+    display: flex;
+    justify-content: center; /* 가로 방향 가운데 정렬합니다. */
+    width: 100%; /* 부모 컨테이너의 전체 너비를 사용합니다. */
+}
+
+.social-link {
+    color: #333;
+    text-decoration: none;
+    margin: 0 5px;
+    display: flex;
+    justify-content: center; /* 가운데 정렬합니다. */
+    gap: 15px; /* 링크 사이의 간격을 설정합니다. */
+}
+
+.social-link:hover {
+    color: #0071e3;
+}
+
+.email {
+    display: block; /* 블록 요소로 만듦으로써 줄바꿈이 일어나게 합니다. */
+    margin: 20px 100px; /* 위아래로 20px 마진을 줍니다. */
+    font-size: 1em;
+    color: #0071e3;
+    text-decoration: none;
+}
+
+/* 연락처 및 소셜 미디어 링크 컨테이너 스타일 */
+.contact-container {
+    display: flex; /* Flexbox를 사용하여 아이템을 라인에 배치합니다. */
+    flex-direction: column; /* 아이템들이 세로로 나열되도록 합니다. */
+    align-items: center; /* 세로 방향 가운데 정렬합니다. */
+}
+body {
+    margin-top: 60px; /* Adjust this value based on the height of your navbar */
+}
+
+body, #home{
+    margin-top: 0;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .profile-content {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr auto;
+    }
+
+    .profile-image-large img {
+        width: 200px; /* Smaller profile image on mobile */
+    }
+
+    .left-content, .right-content, .profile-image {
+        margin: 0 auto;
+        max-width: 100%;
+    }
+
+    .left-content, .right-content {
+        grid-column: 1;
+    }
+
+    .profile-image {
+        order: 2;
+        width: 150px;
+    }
+
+    .contact-info, .social-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .email, .social-link {
+        margin: 5px 0;
+    }
+
+    .profile-image-large {
+        grid-row: 2; /* Place the image in the second row */
+        max-height: 50vh; /* Adjust for smaller screens */
+    }
+
+}
