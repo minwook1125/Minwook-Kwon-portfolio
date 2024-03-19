@@ -193,7 +193,9 @@ main {
 }
 .social-links {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center; /* 가로 방향 가운데 정렬합니다. */
+    gap: 10px;
     width: 100%; /* 부모 컨테이너의 전체 너비를 사용합니다. */
 }
 
@@ -211,17 +213,18 @@ main {
 }
 
 .email {
-    display: block; /* 블록 요소로 만듦으로써 줄바꿈이 일어나게 합니다. */
-    margin: 20px 100px; /* 위아래로 20px 마진을 줍니다. */
-    font-size: 1em;
-    color: #0071e3;
-    text-decoration: none;
+    font-weight: bold; /* Optionally make the email stand out */
+    color: #0071e3; /* Use a distinctive color */
+    padding: 10px 0; /* Add some padding above and below the email */
+    order: -1; /* Make sure the email comes first */
+    width: 100%; /* Ensure the email takes the full width to be on its own line */
+    text-align: center; /* Center the email text */
 }
 
 /* 연락처 및 소셜 미디어 링크 컨테이너 스타일 */
 .contact-container {
     display: flex; /* Flexbox를 사용하여 아이템을 라인에 배치합니다. */
-    flex-direction: column; /* 아이템들이 세로로 나열되도록 합니다. */
+    flex-direction: column;
     align-items: center; /* 세로 방향 가운데 정렬합니다. */
 }
 body {
@@ -251,6 +254,11 @@ body, #home{
 
     .left-content, .right-content {
         grid-column: 1;
+        font-size: 1em;
+    }
+
+    .left-content{
+        font-size: 1.5em;
     }
 
     .profile-image {
@@ -258,18 +266,67 @@ body, #home{
         width: 150px;
     }
 
-    .contact-info, .social-links {
-        flex-direction: column;
-        align-items: center;
+    .contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     }
 
-    .email, .social-link {
-        margin: 5px 0;
+    .social-links-row {
+        display: flex;
+        justify-content: center;
+        gap: 10px; /* Adjust the gap as needed */
     }
+
+    .social-link, .email {
+        margin: 5px; /* Adjust the margin as needed */
+        text-decoration: none;
+    }
+
+    .email {
+        font-weight: bold; /* Optionally make the email stand out */
+        color: #0071e3; /* Use a distinctive color */
+        padding-bottom: 10px; /* Add some padding below the email */
+    }
+
 
     .profile-image-large {
         grid-row: 2; /* Place the image in the second row */
         max-height: 50vh; /* Adjust for smaller screens */
     }
 
+/*    .email {*/
+/*    display: block; !* 블록 요소로 만듦으로써 줄바꿈이 일어나게 합니다. *!*/
+/*    font-size: 1em;*/
+/*    color: #0071e3;*/
+/*    text-decoration: none;*/
+/*}*/
+    /* Reorder the elements */
+    .left-content {
+        order: 1; /* Hi text comes first */
+    }
+
+    .profile-image-large {
+        order: 2; /* Image comes second */
+        grid-column: 1; /* Take full width */
+        padding-top: 0; /* Remove additional padding if present */
+    }
+
+    .right-content {
+        order: 3; /* Remaining text comes last */
+    }
+
+    /* Ensure the image takes appropriate space */
+    .profile-image-large img {
+        max-width: 100%; /* Full width of its container */
+        height: auto; /* Maintain aspect ratio */
+        clip-path: none; /* Remove clipping if you want to display the full image */
+    }
+
+    /* Since .profile-content becomes a single column, we don't need grid-template-columns defined */
+    .profile-content {
+        grid-template-columns: none;
+        grid-template-rows: auto; /* Rows adapt to content size */
+    }
 }
