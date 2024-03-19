@@ -109,6 +109,7 @@ main {
 
 
 .profile-image-large {
+    padding-top: 200px;
     grid-column: 2 / 3;
     place-self: center; /* Center the image in its grid area */
     width: auto; /* Reset any specific width */
@@ -117,10 +118,10 @@ main {
 }
 
 .profile-image-large img {
-    max-height: 75vh;
-    max-width: 100%;
+    max-height: 80vh;
+    max-width: 150%;
     height: auto;
-    clip-path: ellipse(50% 100% at 50% 50%);
+    clip-path: ellipse(45% 100% at 50% 50%);
 }
 
 .left-content, .right-content {
@@ -239,7 +240,8 @@ body, #home{
     }
 
     .profile-image-large img {
-        width: 200px; /* Smaller profile image on mobile */
+        max-width: 90%; /* 모바일 화면에서 이미지 너비 */
+        max-height: 40vh; /* 모바일 화면에서 이미지 높이 */
     }
 
     .left-content, .right-content, .profile-image {
