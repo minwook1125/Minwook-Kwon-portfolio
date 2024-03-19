@@ -141,18 +141,18 @@ main {
 .left-content {
     grid-column: 1 / 2;
     text-align: left; /* Align text to the left */
+    font-size: 1.6em;
 }
 
 .right-content {
     grid-column: 3 / 4;
     text-align: left; /* Align text to the left */
-    font-size: 1.2em; /* Slightly larger font size */
+    font-size: 1.3em; /* Slightly larger font size */
 }
 
 .left-content .name {
     color:red; /* Sky blue color for the name "Minwook Kwon" */
     display: inline;
-    font-size: 1.5em;
 }
 
 /* 문구 강조 스타일 */
