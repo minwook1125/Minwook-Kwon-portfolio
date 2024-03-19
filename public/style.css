@@ -159,6 +159,7 @@ main {
 .highlight {
     font-weight: bold; /* 글자를 굵게 합니다. */
     font-size: 1.2em; /* 글자 크기를 더 크게 설정합니다. */
+    color: red;
 }
 
 /* Since we have a specific blue, let's use the exact color from the screenshot */
