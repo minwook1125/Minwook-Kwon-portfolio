@@ -12,7 +12,7 @@
 <body>
     <header>
         <nav id="navbar">
-            <a href="#" class="brand-logo">YNWA</a>
+            <a href="#" class="brand-logo" onclick="unmuteMusic()">YNWA</a>
             <div class="nav-links">
                 <a href="#home">Home</a>
                 <a href="#papers">Papers</a>
@@ -50,5 +50,38 @@
             <!-- Additional image at the bottom -->
         </section>
     </main>
+ <!-- Audio player element with muted attribute -->
+    <audio id="background-music" loop muted>
+        <source src="./Music/Gerry%20&%20The%20Pacemakers%20-%20You'll%20Never%20Walk%20Alone.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        const bgMusic = document.getElementById('background-music');
+        const unmuteButton = document.getElementById('unmute-button');
+
+        // Function to start playing music and remove the 'muted' attribute
+        function unmuteMusic() {
+            bgMusic.muted = false;
+            bgMusic.play().catch(e => {
+                console.error("Autoplay with sound was prevented by the browser.", e);
+            });
+            // Optionally, hide the button after it's clicked
+            unmuteButton.style.display = 'none';
+        }
+
+        // Attempt to play muted music as soon as possible
+        function playMusic() {
+            bgMusic.play().catch(e => {
+                console.error("Autoplay was prevented by the browser.", e);
+            });
+        }
+
+        if (document.readyState === 'complete') {
+            playMusic();
+        } else {
+            window.addEventListener('load', playMusic);
+        }
+    </script>
 </body>
 </html>
